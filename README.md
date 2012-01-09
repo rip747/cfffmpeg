@@ -1,6 +1,6 @@
 #CFFFMPEG
 
-A port of the [FFMPEG](https://github.com/polly/ffmpeg) DSL Ruby library to CFML.
+A port of the [FFMPEG](https://github.com/polly/ffmpeg) DSL for Ruby to CFML.
 
 ##Why
 
@@ -50,4 +50,4 @@ I also want to thank [CFSearching](http://cfsearching.blogspot.com) whose posts 
 ##Enhancements and Bug Fixes
 If you have issues please report them in the bug tracker.
 
-I am NOT taking enhancment request for this project. If you have a feature that you would like to add, fork the project, add the feature yourself and submit a pull request back. I have too many other projects that I'm already working on and I do not have the time to devote this one.
+I am **NOT** taking enhancment request for this project. If you have a feature that you would like to add, fork the project, add the feature yourself and submit a pull request back. I have too many other projects that I'm already working on and I do not have the time to devote this one.
