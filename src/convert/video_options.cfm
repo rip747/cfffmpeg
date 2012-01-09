@@ -65,7 +65,7 @@
 
 <cffunction name="video_bitrate" hint="Set the video bitrate in bit/s (default = 200 kb/s or '200k')">
 	<cfargument name="bitrate" type="string" required="true">
-	<cfset $push("-vb #arguments.bitrate")>
+	<cfset $push("-vb #arguments.bitrate#")>
 </cffunction>
 
 <cffunction name="video_frames" hint="Set the number of video frames to record">

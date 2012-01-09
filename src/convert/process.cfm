@@ -1,25 +1,21 @@
-<cffunction name="end" access="public">
-	
+<cffunction name="end" access="public" returntype="struct">
+	<cfset var loc = {}>
+	<cfset loc.cmd = $flatten()>
+	<cfset loc.results = structNew()>
 
-<!--- convert the file --->
-<cfset results = structNew()>
-<cfscript>
-    try {
-        runtime = createObject("java", "java.lang.Runtime").getRuntime();
-        command = '#ffmpegPath# -i "#inputFilePath#" -g 300 -y -s 300x200 -f flv -ar 44100 "#ouputFilePath#"'; 
-        process = runtime.exec(#command#);
-        results.errorLogSuccess = processStream(process.getErrorStream(), errorLog);
-        results.resultLogSuccess = processStream(process.getInputStream(), resultLog);
-        results.exitCode = process.waitFor();
-    }
-    catch(exception e) {
-        results.status = e;    
-    }
-</cfscript>
+	<cftry>
+		<cfset loc.runtime = createObject("java", "java.lang.Runtime").getRuntime()>
+		<cfset loc.process = loc.runtime.exec(loc.cmd)>
+		<cfset loc.results.errorLogSuccess = processStream(loc.process.getErrorStream(), loc.errorLog)>
+		<cfset loc.results.resultLogSuccess = processStream(loc.process.getInputStream(), loc.resultLog)>
+		<cfset loc.results.exitCode = loc.process.waitFor()>
+		<cfcatch type="Any">
+			<cfset loc.results.status = cfcatch>
+		</cfcatch>
+	</cftry>
 
-<!--- display the results --->
-<cfdump var="#results#">
-
+	<cfreturn loc.results>
+</cffunction>
 
 <!--- function used to drain the input/output streams. Optionally write the stream to a file --->
 <cffunction name="processStream" access="public" output="false" returntype="boolean" hint="Returns true if stream was successfully processed">

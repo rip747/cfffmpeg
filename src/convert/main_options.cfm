@@ -78,7 +78,7 @@ duration '00:10:00'
 	<cfset $push("-track #arguments.track#")>
 </cffunction>
 
-<cffunction name="year" hint="Set the year">
+<cffunction name="theyear" hint="Set the year">
 	<cfargument name="year" type="numeric" required="true">
 	<cfset $push("-year #arguments.year#")>
 </cffunction>
