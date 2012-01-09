@@ -1,3 +1,5 @@
+<cfdump var="#server#"><cfabort>
+
 <html>
 <head>
 	<title>RocketUnit unit tests</title>

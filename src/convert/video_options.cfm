@@ -91,36 +91,43 @@
 <cffunction name="crop_bottom" hint="Set bottom crop band size (in pixels).">
 	<cfargument name="size" type="numeric" required="true">
 	<cfset $push("-cropbottom #arguments.size#")>
+	<cfreturn this>
 </cffunction>
 
 <cffunction name="crop_left" hint="Set left crop band size (in pixels).">
 	<cfargument name="size" type="numeric" required="true">
 	<cfset $push("-cropleft #arguments.size#")>
+	<cfreturn this>
 </cffunction>
 
 <cffunction name="crop_right" hint="Set right crop band size (in pixels).">
 	<cfargument name="number" type="numeric" required="true">
 	<cfset $push("-cropright #arguments.size#")>
+	<cfreturn this>
 </cffunction>
 
 <cffunction name="pad_top" hint="Set top pad band size (in pixels).">
 	<cfargument name="size" type="numeric" required="true">
 	<cfset $push("-padtop #arguments.size#")>
+	<cfreturn this>
 </cffunction>
 
 <cffunction name="pad_bottom" hint="Set bottom pad band size (in pixels).">
 	<cfargument name="size" type="numeric" required="true">
 	<cfset $push("-padbottom #arguments.size#")>
+	<cfreturn this>
 </cffunction>
 
 <cffunction name="pad_left" hint="Set left pad band size (in pixels).">
 	<cfargument name="size" type="numeric" required="true">
 	<cfset $push("-padleft #arguments.size#")>
+	<cfreturn this>
 </cffunction>
 
 <cffunction name="pad_right" hint="Set right pad band size (in pixels).">
 	<cfargument name="size" type="numeric" required="true">
 	<cfset $push("-padright #arguments.size#")>
+	<cfreturn this>
 </cffunction>
 
 <cffunction name="pad_color" hint="
@@ -129,10 +136,12 @@ two digits represent red, the middle two digits green and last two digits blue (
 ">
 	<cfargument name="color" type="string" required="true">
 	<cfset $push("-padcolor #arguments.color#")>
+	<cfreturn this>
 </cffunction>
 
 <cffunction name="disable_video" hint="Disable video recording.">
 	<cfset $push("-vn")>
+	<cfreturn this>
 </cffunction>
 
 <cffunction name="video_bitrate_tolerance" hint="
@@ -143,11 +152,13 @@ quality.
 ">
 	<cfargument name="tolerance" type="numeric" required="true">
 	<cfset $push("-bt #arguments.tolerance#")>
+	<cfreturn this>
 </cffunction>
 
 <cffunction name="video_maximum_bitrate" hint="Set max video bitrate (in bit/s). Requires -bufsize to be set.">
 	<cfargument name="bitrate" type="numeric" required="true">
 	<cfset $push("-maxrate #arguments.bitrate#")>
+	<cfreturn this>
 </cffunction>
 
 <cffunction name="video_minimum_bitrate" hint="
@@ -157,20 +168,24 @@ It is of little use elsewise.
 ">
 	<cfargument name="bitrate" type="numeric" required="true">
 	<cfset $push("-minrate #arguments.bitrate#")>
+	<cfreturn this>
 </cffunction>
 
 <cffunction name="video_buffer_size" hint="Set video buffer verifier buffer size (in bits).">
 	<cfargument name="size" type="numeric" required="true">
 	<cfset $push("-bufsize #arguments.size#")>
+	<cfreturn this>
 </cffunction>
 
 <cffunction name="video_codec" hint="Force video codec to codec. Use the copy special value to tell that the raw codec data must be copied as is.">
 	<cfargument name="number" type="string" required="true">
 	<cfset $push("-vcodec #arguments.codec#")>
+	<cfreturn this>
 </cffunction>
 
 <cffunction name="same_video_quality" hint="Use same video quality as source (implies VBR).">
 	<cfset $push("-sameq")>
+	<cfreturn this>
 </cffunction>
 
 <cffunction name="video_pass" hint="
@@ -184,6 +199,7 @@ ffmpeg -i foo.mov -vcodec libxvid -pass 1 -an -f rawvideo -y /dev/null
 ">
 	<cfargument name="index" type="numeric" required="true">
 	<cfset $push("-pass #arguments.index#")>
+	<cfreturn this>
 </cffunction>
 
 <cffunction name="video_pass_logfile" hint="
@@ -192,9 +208,11 @@ name will be `PREFIX-N.log', where N is a number specific to the output stream.
 ">
 	<cfargument name="prefix" type="numeric" required="true">
 	<cfset $push("-passlogfile #arguments.prefix#")>
+	<cfreturn this>
 </cffunction>
 
 <cffunction name="new_video" hint="Add a new video stream to the current output stream.">
 	<cfargument name="number" type="numeric" required="true">
 	<cfset $push("-newvideo")>
+	<cfreturn this>
 </cffunction>
