@@ -5,8 +5,8 @@ duration '600'
 or
 duration '00:10:00'
 ">
-	<cfargument name="duration" type="string" required="true">
-	<cfset $push("-t #arguments.duration#")>
+	<cfargument name="value" type="string" required="true">
+	<cfset $push("-t #arguments.value#")>
 	<cfreturn this>
 </cffunction>
 
@@ -14,8 +14,8 @@ duration '00:10:00'
 Set a file size limit in bytes
 file_size_limit 104857600
 ">
-	<cfargument name="limit" type="numeric" required="true">
-	<cfset $push("-fs #arguments.limit#")>
+	<cfargument name="value" type="numeric" required="true">
+	<cfset $push("-fs #arguments.value#")>
 	<cfreturn this>
 </cffunction>
 
@@ -26,8 +26,8 @@ duration '600'
 or
 duration '00:10:00'
 ">
-	<cfargument name="position" type="string" required="true">
-	<cfset $push("-ss #arguments.position#")>
+	<cfargument name="value" type="string" required="true">
+	<cfset $push("-ss #arguments.value#")>
 	<cfreturn this>
 </cffunction>
 
@@ -42,50 +42,50 @@ duration '600'
 or
 duration '00:10:00'
 ">
-	<cfargument name="offset" type="numeric" required="true">
-	<cfset $push("-itsoffset #arguments.offset#")>
+	<cfargument name="value" type="numeric" required="true">
+	<cfset $push("-itsoffset #arguments.value#")>
 	<cfreturn this>
 </cffunction>
 
 <cffunction name="title" hint="Set the title.">
-	<cfargument name="title" type="string" required="true">
-	<cfset $push("-title '#arguments.title#'")>
+	<cfargument name="value" type="string" required="true">
+	<cfset $push("-title '#arguments.value#'")>
 	<cfreturn this>
 </cffunction>
 
 <cffunction name="author" hint="Set the author.">
-	<cfargument name="author" type="string" required="true">
-	<cfset $push("-author '#arguments.author#'")>
+	<cfargument name="value" type="string" required="true">
+	<cfset $push("-author '#arguments.value#'")>
 	<cfreturn this>
 </cffunction>
 
 <cffunction name="copyright" hint="Set the copyright.">
-	<cfargument name="copyright" type="string" required="true">
-	<cfset $push("-copyright '#arguments.copyright#'")>
+	<cfargument name="value" type="string" required="true">
+	<cfset $push("-copyright '#arguments.value#'")>
 	<cfreturn this>
 </cffunction>
 
 <cffunction name="comment" hint="Set the comment.">
-	<cfargument name="comment" type="string" required="true">
-	<cfset $push("-comment '#arguments.comment#'")>
+	<cfargument name="value" type="string" required="true">
+	<cfset $push("-comment '#arguments.value#'")>
 	<cfreturn this>
 </cffunction>
 
 <cffunction name="album" hint="Set the album.">
-	<cfargument name="album" type="string" required="true">
-	<cfset $push("-album '#arguments.album#'")>
+	<cfargument name="value" type="string" required="true">
+	<cfset $push("-album '#arguments.value#'")>
 	<cfreturn this>
 </cffunction>
 
 <cffunction name="track" hint="Set the track number">
-	<cfargument name="track" type="numeric" required="true">
-	<cfset $push("-track #arguments.track#")>
+	<cfargument name="value" type="numeric" required="true">
+	<cfset $push("-track #arguments.value#")>
 	<cfreturn this>
 </cffunction>
 
 <cffunction name="theyear" hint="Set the year">
-	<cfargument name="year" type="numeric" required="true">
-	<cfset $push("-year #arguments.year#")>
+	<cfargument name="value" type="numeric" required="true">
+	<cfset $push("-year #arguments.value#")>
 	<cfreturn this>
 </cffunction>
 
@@ -95,19 +95,19 @@ All the format options (bitrate, codecs, buffer sizes) are then set automaticall
 Nevertheless you can specify additional options as long as you know they do not conflict 
 with the standard.
 ">
-	<cfargument name="target" type="string" required="true">
-	<cfset $push("-target #arguments.target#")>
+	<cfargument name="value" type="string" required="true">
+	<cfset $push("-target #arguments.value#")>
 	<cfreturn this>
 </cffunction>
 
 <cffunction name="frames_to_record" hint="Set the number of frames to record.">
-	<cfargument name="frames" type="numeric" required="true">
-	<cfset $push("-dframes #arguments.frames#")>
+	<cfargument name="value" type="numeric" required="true">
+	<cfset $push("-dframes #arguments.value#")>
 	<cfreturn this>
 </cffunction>
 
 <cffunction name="subtitle_codec" hint="Force subtitle codec ('copy' to copy stream)">
-	<cfargument name="codec" type="string" required="true">
-	<cfset $push("-scodec #arguments.codec#")>
+	<cfargument name="value" type="string" required="true">
+	<cfset $push("-scodec #arguments.value#")>
 	<cfreturn this>
 </cffunction>

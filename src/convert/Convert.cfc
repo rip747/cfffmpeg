@@ -39,8 +39,9 @@
 	</cffunction>
 	
 	<cffunction name="cmd" hint="send a command directly instead of using the dsl. note: just commands. we will take care of the ffmpeg path, source and target video">
-		<cfargument name="cmd">
-		<cfset $push(arguments.cmd)>
+		<cfargument name="value" type="string" required="true">
+		<cfset $push(arguments.value)>
+		<cfreturn this>
 	</cffunction>
 
 	<cffunction name="$flatten" hint="flattens the ffmpeg cmds to a string" access="private">
@@ -50,7 +51,7 @@
 	
 	<cffunction name="$push" hint="pushes a command to the stack" access="private">
 		<cfargument name="cmd" type="string">
-		<cfset arrayAppend(variables._cmd, arguments.cmd)>
+		<cfset arrayAppend(variables._cmd, trim(arguments.cmd))>
 	</cffunction>
 	
 	<cffunction name="$insertAt" hint="insert command at a position in the stack" access="private">

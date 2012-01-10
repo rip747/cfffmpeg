@@ -59,74 +59,80 @@
  'hd1080'
      1920x1080
 ">
-	<cfargument name="resolution" type="string" required="true">
-	<cfset $push("-s #arguments.resolution#")>
+	<cfargument name="value" type="string" required="true">
+	<cfset $push("-s #arguments.value#")>
+	<cfreturn this>
 </cffunction>
 
 <cffunction name="video_bitrate" hint="Set the video bitrate in bit/s (default = 200 kb/s or '200k')">
-	<cfargument name="bitrate" type="string" required="true">
-	<cfset $push("-vb #arguments.bitrate#")>
+	<cfargument name="value" type="string" required="true">
+	<cfset $push("-vb #arguments.value#")>
+	<cfreturn this>
 </cffunction>
 
 <cffunction name="video_frames" hint="Set the number of video frames to record">
-	<cfargument name="number" type="numeric" required="true">
-	<cfset $push("-vframes #arguments.number#")>
+	<cfargument name="value" type="numeric" required="true">
+	<cfset $push("-vframes #arguments.value#")>
+	<cfreturn this>
 </cffunction>
  
 <cffunction name="framerate" hint="Set frame rate (Hz value, fraction or abbreviation), (default = 25).">
-	<cfargument name="fps" type="numeric" required="true">
-	<cfset $push("-r #arguments.fps#")>
+	<cfargument name="value" type="numeric" required="true">
+	<cfset $push("-r #arguments.value#")>
+	<cfreturn this>
 </cffunction>
  
 <cffunction name="aspect" hint="Set aspect ratio (4:3, 16:9 or 1.3333, 1.7777).">
-	<cfargument name="aspect" type="numeric" required="true">
-	<cfset $push("-aspect #arguments.aspect#")>
+	<cfargument name="value" type="string" required="true">
+	<cfset $push("-aspect #arguments.value#")>
+	<cfreturn this>
 </cffunction>
 
 <cffunction name="crop_top" hint="Set top crop band size (in pixels).">
-	<cfargument name="size" type="numeric" required="true">
-	<cfset $push("-croptop #arguments.size#")>
+	<cfargument name="value" type="numeric" required="true">
+	<cfset $push("-croptop #arguments.value#")>
+	<cfreturn this>
 </cffunction>
 
 <cffunction name="crop_bottom" hint="Set bottom crop band size (in pixels).">
-	<cfargument name="size" type="numeric" required="true">
-	<cfset $push("-cropbottom #arguments.size#")>
+	<cfargument name="value" type="numeric" required="true">
+	<cfset $push("-cropbottom #arguments.value#")>
 	<cfreturn this>
 </cffunction>
 
 <cffunction name="crop_left" hint="Set left crop band size (in pixels).">
-	<cfargument name="size" type="numeric" required="true">
-	<cfset $push("-cropleft #arguments.size#")>
+	<cfargument name="value" type="numeric" required="true">
+	<cfset $push("-cropleft #arguments.value#")>
 	<cfreturn this>
 </cffunction>
 
 <cffunction name="crop_right" hint="Set right crop band size (in pixels).">
-	<cfargument name="number" type="numeric" required="true">
-	<cfset $push("-cropright #arguments.size#")>
+	<cfargument name="value" type="numeric" required="true">
+	<cfset $push("-cropright #arguments.value#")>
 	<cfreturn this>
 </cffunction>
 
 <cffunction name="pad_top" hint="Set top pad band size (in pixels).">
-	<cfargument name="size" type="numeric" required="true">
-	<cfset $push("-padtop #arguments.size#")>
+	<cfargument name="value" type="numeric" required="true">
+	<cfset $push("-padtop #arguments.value#")>
 	<cfreturn this>
 </cffunction>
 
 <cffunction name="pad_bottom" hint="Set bottom pad band size (in pixels).">
-	<cfargument name="size" type="numeric" required="true">
-	<cfset $push("-padbottom #arguments.size#")>
+	<cfargument name="value" type="numeric" required="true">
+	<cfset $push("-padbottom #arguments.value#")>
 	<cfreturn this>
 </cffunction>
 
 <cffunction name="pad_left" hint="Set left pad band size (in pixels).">
-	<cfargument name="size" type="numeric" required="true">
-	<cfset $push("-padleft #arguments.size#")>
+	<cfargument name="value" type="numeric" required="true">
+	<cfset $push("-padleft #arguments.value#")>
 	<cfreturn this>
 </cffunction>
 
 <cffunction name="pad_right" hint="Set right pad band size (in pixels).">
-	<cfargument name="size" type="numeric" required="true">
-	<cfset $push("-padright #arguments.size#")>
+	<cfargument name="value" type="numeric" required="true">
+	<cfset $push("-padright #arguments.value#")>
 	<cfreturn this>
 </cffunction>
 
@@ -134,8 +140,8 @@
 Set color of padded bands. The value for padcolor is expressed as a six digit hexadecimal number where the first
 two digits represent red, the middle two digits green and last two digits blue (default = 000000 (black)).
 ">
-	<cfargument name="color" type="string" required="true">
-	<cfset $push("-padcolor #arguments.color#")>
+	<cfargument name="value" type="string" required="true">
+	<cfset $push("-padcolor #arguments.value#")>
 	<cfreturn this>
 </cffunction>
 
@@ -150,14 +156,14 @@ In 1-pass mode, bitrate tolerance specifies how far ratecontrol is willing to de
 bitrate value. This is not related to min/max bitrate. Lowering tolerance too much has an adverse effect on
 quality.
 ">
-	<cfargument name="tolerance" type="numeric" required="true">
-	<cfset $push("-bt #arguments.tolerance#")>
+	<cfargument name="value" type="string" required="true">
+	<cfset $push("-bt #arguments.value#")>
 	<cfreturn this>
 </cffunction>
 
 <cffunction name="video_maximum_bitrate" hint="Set max video bitrate (in bit/s). Requires -bufsize to be set.">
-	<cfargument name="bitrate" type="numeric" required="true">
-	<cfset $push("-maxrate #arguments.bitrate#")>
+	<cfargument name="value" type="string" required="true">
+	<cfset $push("-maxrate #arguments.value#")>
 	<cfreturn this>
 </cffunction>
 
@@ -166,20 +172,20 @@ Set min video bitrate (in bit/s). Most useful in setting up a CBR encode:
 ffmpeg -i myfile.avi -b 4000k -minrate 4000k -maxrate 4000k -bufsize 1835k out.m2v
 It is of little use elsewise.
 ">
-	<cfargument name="bitrate" type="numeric" required="true">
-	<cfset $push("-minrate #arguments.bitrate#")>
+	<cfargument name="value" type="string" required="true">
+	<cfset $push("-minrate #arguments.value#")>
 	<cfreturn this>
 </cffunction>
 
 <cffunction name="video_buffer_size" hint="Set video buffer verifier buffer size (in bits).">
-	<cfargument name="size" type="numeric" required="true">
-	<cfset $push("-bufsize #arguments.size#")>
+	<cfargument name="value" type="numeric" required="true">
+	<cfset $push("-bufsize #arguments.value#")>
 	<cfreturn this>
 </cffunction>
 
 <cffunction name="video_codec" hint="Force video codec to codec. Use the copy special value to tell that the raw codec data must be copied as is.">
-	<cfargument name="number" type="string" required="true">
-	<cfset $push("-vcodec #arguments.codec#")>
+	<cfargument name="value" type="string" required="true">
+	<cfset $push("-vcodec #arguments.value#")>
 	<cfreturn this>
 </cffunction>
 
@@ -197,8 +203,8 @@ set output to null, examples for Windows and Unix:
 ffmpeg -i foo.mov -vcodec libxvid -pass 1 -an -f rawvideo -y NUL
 ffmpeg -i foo.mov -vcodec libxvid -pass 1 -an -f rawvideo -y /dev/null
 ">
-	<cfargument name="index" type="numeric" required="true">
-	<cfset $push("-pass #arguments.index#")>
+	<cfargument name="value" type="numeric" required="true">
+	<cfset $push("-pass #arguments.value#")>
 	<cfreturn this>
 </cffunction>
 
@@ -206,13 +212,12 @@ ffmpeg -i foo.mov -vcodec libxvid -pass 1 -an -f rawvideo -y /dev/null
 Set two-pass log file name prefix to prefix, the default file name prefix is 'ffmpeg2pass'. The complete file
 name will be `PREFIX-N.log', where N is a number specific to the output stream.
 ">
-	<cfargument name="prefix" type="numeric" required="true">
-	<cfset $push("-passlogfile #arguments.prefix#")>
+	<cfargument name="value" type="string" required="true">
+	<cfset $push("-passlogfile #arguments.value#")>
 	<cfreturn this>
 </cffunction>
 
 <cffunction name="new_video" hint="Add a new video stream to the current output stream.">
-	<cfargument name="number" type="numeric" required="true">
 	<cfset $push("-newvideo")>
 	<cfreturn this>
 </cffunction>

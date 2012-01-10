@@ -1,24 +1,24 @@
 <cffunction name="audio_frames" hint="Set the number of audio frames to record.">
-	<cfargument name="number" type="numeric" required="true">
-	<cfset $push("-aframes #arguments.number#")>
+	<cfargument name="value" type="numeric" required="true">
+	<cfset $push("-aframes #arguments.value#")>
 	<cfreturn this>
 </cffunction>
 
 <cffunction name="audio_sampling" hint="Set the audio sampling frequency (default = 44100 Hz).">
-	<cfargument name="frequency" type="string" required="true">
-	<cfset $push("-ar #arguments.frequency#")>
+	<cfargument name="value" type="string" required="true">
+	<cfset $push("-ar #arguments.value#")>
 	<cfreturn this>
 </cffunction>
 
 <cffunction name="audio_bitrate" hint="Set the audio bitrate in bit/s (default = 64k).">
-	<cfargument name="bitrate" type="string" required="true">
-	<cfset $push("-ab #arguments.bitrate#")>
+	<cfargument name="value" type="string" required="true">
+	<cfset $push("-ab #arguments.value#")>
 	<cfreturn this>
 </cffunction>
 
 <cffunction name="audio_channels" hint="Set the number of audio channels (default = 1).">
-	<cfargument name="number" type="numeric" required="true">
-	<cfset $push("-ac #arguments.number#")>
+	<cfargument name="value" type="numeric" required="true">
+	<cfset $push("-ac #arguments.value#")>
 	<cfreturn this>
 </cffunction>
 
@@ -28,8 +28,8 @@
 </cffunction>
 
 <cffunction name="audio_codec" hint="Force audio codec to codec. Use the copy special value to specify that the raw codec data must be copied as is.">
-	<cfargument name="codec" type="string" required="true">
-	<cfset $push("-acodec #arguments.codec#")>
+	<cfargument name="value" type="string" required="true">
+	<cfset $push("-acodec #arguments.value#")>
 	<cfreturn this>
 </cffunction>
 
@@ -44,7 +44,7 @@ ffmpeg -i file.mpg -vcodec copy -acodec ac3 -ab 384k test.mpg -acodec mp2 -ab 19
 </cffunction>
 
 <cffunction name="audio_language" hint="Set the ISO 639 language code (3 letters) of the current audio stream.">
-	<cfargument name="code" type="string" required="true">
-	<cfset $push("-alang #arguments.code#")>
+	<cfargument name="value" type="string" required="true">
+	<cfset $push("-alang #arguments.value#")>
 	<cfreturn this>
 </cffunction>
