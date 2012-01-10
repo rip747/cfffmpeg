@@ -18,8 +18,8 @@
 	<cftry>
 		<cfset loc.runtime = createObject("java", "java.lang.Runtime").getRuntime()>
 		<cfset loc.process = loc.runtime.exec(loc.cmd)>
-		<cfset loc.results.logfile = processStream(loc.process.getErrorStream(), variables._settings.errorLog)>
-		<cfset loc.blah = processStream(loc.process.getInputStream(), variables._settings.resultLog)>
+		<cfset loc.results.logfile = $processStream(loc.process.getErrorStream(), variables._settings.errorLog)>
+		<cfset loc.blah = $processStream(loc.process.getInputStream(), variables._settings.resultLog)>
 		<cfset loc.results.success = loc.process.waitFor()>
 		
 		<cfcatch type="any">
@@ -37,7 +37,7 @@
 </cffunction>
 
 <!--- function used to drain the input/output streams. Optionally write the stream to a file --->
-<cffunction name="processStream" access="public" output="false" returntype="any" hint="Return">
+<cffunction name="$processStream" access="private" output="false" returntype="any" hint="Return">
     <cfargument name="in" type="any" required="true" hint="java.io.InputStream object">
     <cfargument name="logPath" type="string" required="false" default="" hint="Full path to LogFile">
 	<cfset var loc = {}>
