@@ -1,5 +1,7 @@
 <cfcomponent output="false">
 
+	<cfset variables.VERSION = "0.1">
+
 	<cfset this.ffmpegPath = expandPath("bin/ffmpeg.exe")>
 	<cfset this.errorLog = getTempDirectory() & "ffmpeg_error_log.txt">
 	<cfset this.resultLog = getTempDirectory() & "ffmpeg_result_log.txt">
