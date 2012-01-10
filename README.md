@@ -16,6 +16,18 @@ Next create the cfffmpeg object using createobject().
 
 Once created you can then use the dsl.
 
+In order to use the DSL, you chain methods which translate to arguments that will be passed to the ffmpeg executable. once you have chaining all the methods together, you call the `end()` method which will then invoke the ffmpeg executable and convert the movie.  
+
+##Main Methods
+
+The DSL has 2 endpoints that you can call:
+
+end() - this will pass all the arguments that you have chained to the ffmpeg executable and convert your movie
+
+inspect() - returns that entire command that will be executed (including the path to ffmpeg, your source and target movie path and all arguments you chained). good for debugging.
+
+Besides calling chaining methods you may also pass any arguments directly to ffmpeg by using the `cmd()` method.  
+
 ###Convert a WMV file to MPEG1
 
     <cfset source = expandPath("vids/test1.wmv")>
@@ -28,8 +40,6 @@ Once created you can then use the dsl.
     <p>Command Executed: #result.cmd#</p>
     <p>Log File: #result.cmd#</p>
     </cfoutput>
-    
-    (more examples needed)
     
 ##Return Data
 
@@ -46,7 +56,11 @@ write up about presets
 
 ##Running tests
 
-writeup about running tests
+clone the repo to a directory under your webroot called cfffmpeg
+
+browse to the test directory under the repo: http://<webroot>/cfffmpeg/tests
+
+RocketUnit is used as the testing framework
 
 ##Thanks and credits
 
