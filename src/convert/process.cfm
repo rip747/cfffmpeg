@@ -21,11 +21,13 @@
 		<cfset loc.results.logfile = processStream(loc.process.getErrorStream(), variables._settings.errorLog)>
 		<cfset loc.blah = processStream(loc.process.getInputStream(), variables._settings.resultLog)>
 		<cfset loc.results.success = loc.process.waitFor()>
-	  	<cfcatch type="any">
-		  	<!--- this makes sure that if an error occurrs the process is killed --->
-		  	<cfif StructKeyExists(loc, "process")>
+		
+		<cfcatch type="any">
+			<!--- this makes sure that if an error occurrs the process is killed --->
+			<cfif StructKeyExists(loc, "process")>
 				<cfset loc.process.destroy()>
 			</cfif>
+			<cfset loc.results.logfile = cfcatch.message>
 		</cfcatch>
 	</cftry>
 
